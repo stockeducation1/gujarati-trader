@@ -1,0 +1,193 @@
+/* Reset Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Mobile-friendly Container with Gold Border */
+.page-container {
+    width: 100%;
+    max-width: 450px; /* Mobile width constraint */
+    background-color: #121212;
+    border: 2px solid #bba15c; /* Golden Border */
+    border-radius: 30px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+d700; /* Gold ring around logo */
+    overflow: hidden;/* Logo Circle styling */
+.logo-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #ff
+    background-color: #023020; /* Dark green background like image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo Circle Box Styling */
+.logo-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #ffd700; /* Gold ring */
+    overflow: hidden; /* Yeh circle se bahar jaane waale parts ko chupa dega */
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image to perfectly fit in the circle */
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Isse image bina kote ya khinche poori tarah circle ko fill kar degi */
+    object-position: center; /* Image ka center part focus mein rahega */
+};
+}
+
+/* Title Section with Crowns */
+.title-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.title-section h1 {
+    font-size: 26px;
+    color: #f3c623; /* Bright Yellow/Gold */
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.crown {
+    font-size: 22px;
+}
+
+/* Subtitle */
+.subtitle {
+    color: #a0a0a0;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+/* Active Members Badge */
+.members-badge {
+    background-color: #1a1a1a;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    border: 1px solid #2a2a2a;
+}
+
+.members-badge span {
+    color: #00ff88; /* Green number */
+    font-weight: bold;
+}
+
+/* Mini Tags Group */
+.tags-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tag {
+    background-color: #1a1a1a;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #d0d0d0;
+    border: 1px solid #2a2a2a;
+}
+
+/* Glowing Blue Telegram Button */
+.telegram-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #00a2ff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 20px rgba(0, 162, 255, 0.6); /* Glow Effect */
+    transition: transform 0.2s;
+}
+
+.telegram-btn:active {
+    transform: scale(0.98);
+}
+
+.telegram-btn span {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* Feature Items/Cards */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.feature-item {
+    background-color: #161616;
+    border: 1px solid #222222;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
+    font-size: 16px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.check-icon {
+    color: #00ff88; /* Green tick mark */
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+/* Footer Bottom Text */
+.footer-text {
+    color: #00a2ff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}

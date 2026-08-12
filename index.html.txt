@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gujarati Trader</title>
+
+  <!-- Gujarati Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% 25%, #12364b 0%, #071522 42%, #031019 100%);
+      color: #fff;
+      font-family: "Noto Sans Gujarati", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 28px 16px 55px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(8, 25, 42, 0.94);
+      border: 1px solid rgba(32, 211, 255, 0.25);
+      border-radius: 28px;
+      padding: 28px 20px 34px;
+      box-shadow:
+        0 0 35px rgba(0, 190, 255, 0.08),
+        inset 0 0 30px rgba(0, 150, 220, 0.025);
+    }
+
+    /* Top heading */
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .small-title {
+      color: #21d7ff;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .safe {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #16d77d, #1ad990);
+      color: #061d18;
+      border-radius: 30px;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #26dcff;
+      box-shadow:
+        0 0 15px rgba(32, 219, 255, 0.7),
+        0 0 35px rgba(32, 219, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo-text {
+      color: #252525;
+      font-size: 19px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      color: #20b96e;
+      font-size: 15px;
+      display: block;
+      letter-spacing: 1px;
+    }
+
+    .verified {
+      position: absolute;
+      bottom: -3px;
+      width: 29px;
+      height: 29px;
+      background: #1688ed;
+      border: 3px solid #08192b;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    /* Main title */
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    h1 span {
+      color: #22d9ff;
+    }
+
+    .description {
+      text-align: center;
+      color: #8d9bab;
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .description strong {
+      color: #22d9ff;
+    }
+
+    /* Buttons */
+    .telegram-btn {
+      width: 100%;
+      min-height: 68px;
+      border: 0;
+      border-radius: 17px;
+      cursor: pointer;
+      color: #061522;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 800;
+      background: linear-gradient(100deg, #2897ff, #1ce39b);
+      box-shadow: 0 10px 25px rgba(17, 209, 190, 0.15);
+      transition: .2s ease;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(17, 209, 190, 0.25);
+    }
+
+    .telegram-btn:active {
+      transform: scale(.98);
+    }
+
+    .telegram-icon {
+      margin-right: 9px;
+      font-size: 21px;
+    }
+
+    /* Popup instructions */
+    .instructions {
+      text-align: center;
+      color: #718091;
+      font-size: 13px;
+      line-height: 1.9;
+      margin: 12px 4px 22px;
+    }
+
+    .instructions b {
+      color: #d3d8df;
+    }
+
+    /* Feature cards */
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .feature {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 15px;
+      border-radius: 15px;
+      background: rgba(18, 36, 56, .75);
+      border: 1px solid rgba(93, 126, 158, .12);
+      color: #e7edf4;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      box-shadow: inset 0 0 20px rgba(255,255,255,.01);
+    }
+
+    .feature-icon {
+      width: 30px;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    /* Bottom button */
+    .bottom-btn {
+      margin-top: 4px;
+    }
+
+    .bottom-note {
+      text-align: center;
+      color: #738294;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 11px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #657586;
+      font-size: 12px;
+      line-height: 1.8;
+      margin-top: 28px;
+    }
+
+    /* Glow */
+    .glow {
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(0, 181, 255, .07);
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow.one {
+      top: 15%;
+      left: -100px;
+    }
+
+    .glow.two {
+      bottom: 5%;
+      right: -100px;
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        padding: 24px 15px 28px;
+        border-radius: 23px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      .feature {
+        font-size: 13px;
+      }
+
+      .telegram-btn {
+        font-size: 15px;
+      }
+
+      .logo-wrap {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <main class="page">
+    <section class="container">
+
+      <!-- Top -->
+      <div class="top-row">
+        <div class="small-title">
+          ફક્ત અમારી સાથે જોડાયેલા<br>
+          ટ્રેડર્સ માટે
+        </div>
+
+        <div class="safe">
+          ✓ Meta Safe
+        </div>
+      </div>
+
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <div class="logo-text">
+          ગુજરાતી
+          <span>TRADER</span>
+        </div>
+
+        <div class="verified">✓</div>
+      </div>
+
+      <!-- Title -->
+      <h1>
+        Gujarati <span>Trader</span>
+      </h1>
+
+      <p class="description">
+        ગુજરાતી ટ્રેડિંગ સમુદાયમાં જોડાઓ<br>
+        <strong>Daily Market Updates</strong> અને Trading<br>
+        Support સંપૂર્ણપણે <strong>મફત</strong>
+      </p>
+
+      <!-- Telegram Button -->
+      <a
+        href="https://t.me/YOUR_TELEGRAM_CHANNEL"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="text-decoration:none;"
+      >
+        <button class="telegram-btn">
+          <span class="telegram-icon">➤</span>
+          JOIN OUR TELEGRAM
+        </button>
+      </a>
+
+      <div class="instructions">
+        ⚡ Popup આવે તો <b>Continue</b> પર ક્લિક કરો<br>
+        ⚡ પોપઅપ આવે તો Continue પર ક્લિક કરીને<br>
+        Telegram ખોલો
+      </div>
+
+      <!-- Features -->
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <div>
+            NIFTY / BANKNIFTY માર્કેટ અપડેટ
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div>
+            ઈન્ટ્રાડે શેરોમાં અને સપોર્ટ
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <div>
+            શરૂઆત કરનારાઓ માટે અનુકૂળ કોમ્યુનિટી
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏆</div>
+          <div>
+            અડપી બજાર માહિતી અને ચર્ચા
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <div>
+            શરૂઆત કરનારાઓ માટે અનુકૂળ કોમ્યુનિટી
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏆</div>
+          <div>
+            અડપી બજાર માહિતી અને ચર્ચા
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Second CTA -->
+      <a
+        href="https://t.me/YOUR_TELEGRAM_CHANNEL"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="text-decoration:none;"
+      >
+        <button class="telegram-btn bottom-btn">
+          <span class="telegram-icon">➤</span>
+          ✓ મફતમાં જોડાઓ
+        </button>
+      </a>
+
+      <div class="bottom-note">
+        ⚡ Popup આવે તો <b>Continue</b> પર ક્લિક કરો<br>
+        ⚡ પોપઅપ આવે તો Continue પર ક્લિક કરીને<br>
+        Telegram ખોલો
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        શેરબજારમાં રોકાણ બજાર જોખમને આધીન છે.<br>
+        સમજદારીપૂર્વક જ્ઞાનવર્ધક નિર્ણય લો.
+      </div>
+
+    </section>
+  </main>
+
+</body>
+</html>
